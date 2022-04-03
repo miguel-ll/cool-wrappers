@@ -1,5 +1,5 @@
 # cool-wrappers
-Wrappers for APIs.
+A collection of Site/API wrappers.
 
 # Used Sites/APIs
 - `https://brasilapi.com.br` (Brasil)
