@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup #and pip install lxml
 import requests
 import re
-import sys
 
 def desc(wd):
     wd = re.sub(" ", "-", wd)
@@ -11,8 +10,7 @@ def desc(wd):
     try:
         result = soup.body.find('span', attrs={'class' :'one-click-content'}).text
     except:
-        print(f"No results found for {wd}.")
-        sys.exit()
+        return
     return result.capitalize()
 
 def ptdesc(wd):
@@ -23,8 +21,7 @@ def ptdesc(wd):
     try:
         result = soup.body.find('p', attrs={'id' : 'significado'}).text
     except:
-        print("Nenhum resultado encontrado para {wd}!")
-        sys.exit()
+        return
     return result
 
 def ptdesc2(wd):
@@ -35,8 +32,7 @@ def ptdesc2(wd):
     try:
         result = soup.body.find('p', attrs={'class' : 'significado'}).text
     except:
-        print("Palavra não encontrada!")
-        sys.exit()
+        return
     result2 = soup.body.find('p', attrs={'class' : 'adicional'})
     li = []
     for res in result2.find_all('a'):
